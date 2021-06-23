@@ -1,7 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
+
+//Rutas
+import { APP_ROUTES } from './app.routes';
+
 import { AppComponent } from './app.component';
 import { IndexComponent } from './pages/index/index.component';
 import { PokemonsComponent } from './pages/pokemons/pokemons.component';
@@ -10,6 +13,9 @@ import { EditPokemonComponent } from './pages/edit-pokemon/edit-pokemon.componen
 import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { HeaderComponent } from './shared/header/header.component';
+import { BreadcrumsComponent } from './shared/breadcrums/breadcrums.component';
+import { CrearPokemonComponent } from './pages/crear-pokemon/crear-pokemon.component';
+
 
 @NgModule({
   declarations: [
@@ -20,11 +26,13 @@ import { HeaderComponent } from './shared/header/header.component';
     EditPokemonComponent,
     PageNotFoundComponent,
     SidebarComponent,
-    HeaderComponent
+    HeaderComponent,
+    BreadcrumsComponent,
+    CrearPokemonComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    APP_ROUTES
   ],
   providers: [],
   bootstrap: [AppComponent]

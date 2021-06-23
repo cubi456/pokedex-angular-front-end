@@ -3,8 +3,8 @@
         <div class="card">
             <div class="card-body">
                 <div class="input-group">
-                    <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-                    <button type="button" class="btn btn-outline-primary">search</button>
+                    <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" #name />
+                    <button type="button" class="btn btn-outline-primary" (click)="buscar(name.value)">search</button>
                 </div>
             </div>
         </div>
@@ -15,9 +15,9 @@
         <div class="card">
             <div class="card-body">
                 <h2 class="font-weight-normal">Pokemon</h2>
-                <p class="font-weight-normal">Nombre:</p>
-                <p class="font-weight-normal">Tipo:</p>
-                <p class="font-weight-normal">Nivel:</p>
+                <p class="font-weight-normal">Nombre: {{pokemon.name}}</p>
+                <p class="font-weight-normal">Tipo: {{pokemon.types}}</p>
+                <p class="font-weight-normal">Nivel: {{pokemon.level}}</p>
             </div>
         </div>
     </div>
@@ -35,17 +35,9 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                        </tr>
-                        <tr>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                        </tr>
-                        <tr>
-                            <td>Larry</td>
-                            <td>the Bird</td>
+                        <tr *ngFor="let skill of pokemon.skills">
+                            <td>{{skill.name}}</td>
+                            <td>{{skill.type}}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -65,20 +57,10 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                        </tr>
-                        <tr>
-                            <td>Larry</td>
-                            <td>the Bird</td>
-                            <td>@twitter</td>
+                        <tr *ngFor="let evol of pokemon.evolutions">
+                            <td>{{evol.name}}</td>
+                            <td>{{evol.type}}</td>
+                            <td>{{evol.name}}</td>
                         </tr>
                     </tbody>
                 </table>

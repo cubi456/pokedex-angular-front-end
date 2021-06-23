@@ -7,6 +7,8 @@ import { PokemonsComponent } from "./pokemons/pokemons.component";
 import { PagesComponent } from './pages.component';
 import { SharedModule } from '../shared/shared.module';
 import { PAGES_ROUTES } from './pages.routes';
+import { HttpClientModule } from "@angular/common/http";
+import { BrowserModule } from '@angular/platform-browser';
 
 @NgModule({
     declarations:[
@@ -28,6 +30,8 @@ import { PAGES_ROUTES } from './pages.routes';
     ],
     imports:[
         SharedModule,
+        HttpClientModule,
+        BrowserModule,
         PAGES_ROUTES
     ]
 })

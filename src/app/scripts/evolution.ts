@@ -1,7 +1,7 @@
 export class Evolution{
-    protected name:string;
-    protected types:string;
-    protected level:number;
+    name:string;
+    types:string;
+    level:number;
 
     constructor(name:string,types:string,level:number)
     {

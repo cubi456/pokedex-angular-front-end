@@ -1,6 +1,6 @@
 export class Skill{
-    protected name:string;
-    protected type:string;
+    name:string;
+    type:string;
 
     constructor(name:string,type:string)
     {

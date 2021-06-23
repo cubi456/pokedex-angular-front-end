@@ -2,6 +2,7 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body">
+                <!-- Creo la tabla donde van a ir los pokemon-->
                 <table class="table table-hover">
                     <thead>
                         <tr>
@@ -12,27 +13,12 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
+                        <tr *ngFor="let pokemon of pokemons;">
+                            <td>{{pokemon.name}}</td>
+                            <td>{{pokemon.types}}</td>
+                            <td>{{pokemon.level}}</td>
                             <td>
-                                <input type="submit" class="btn btn-danger" value="Eliminar">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                            <td>
-                                <input type="submit" class="btn btn-danger" value="Eliminar">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="2">Larry the Bird</td>
-                            <td>@twitter</td>
-                            <td>
-                                <input type="submit" class="btn btn-danger" value="Eliminar">
+                                <input type="submit" class="btn btn-danger" value="Eliminar" (click)="deletePokemon(pokemon.name)">
                             </td>
                         </tr>
                     </tbody>

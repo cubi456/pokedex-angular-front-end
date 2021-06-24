@@ -36,9 +36,14 @@ export class PokemonService {
    * almacenados en la base de datos.
    * Retorna una promesa.
    */
-  async eliminarPokemon(name:string):Promise<Object>
+  async eliminarPokemon(name:string):Promise<Pokemon>
   {     
-     return await this.http.get(this._url+"deletePokemon/"+name).toPromise();
+     return await this.http.get<Pokemon>(this._url+"deletePokemon/"+name).toPromise();
+  }
+
+  async updatePokemon(pokemon:Pokemon):Promise<Pokemon>
+  {
+    return await this.http.post<Pokemon>(this._url+"updatePokemon",pokemon).toPromise();
   }
 
 }

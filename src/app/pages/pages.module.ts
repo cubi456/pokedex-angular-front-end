@@ -9,6 +9,7 @@ import { SharedModule } from '../shared/shared.module';
 import { PAGES_ROUTES } from './pages.routes';
 import { HttpClientModule } from "@angular/common/http";
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
     declarations:[
@@ -32,6 +33,8 @@ import { BrowserModule } from '@angular/platform-browser';
         SharedModule,
         HttpClientModule,
         BrowserModule,
+        FormsModule,
+        ReactiveFormsModule,
         PAGES_ROUTES
     ]
 })

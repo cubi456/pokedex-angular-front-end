@@ -1,1 +1,151 @@
-<p>edit-pokemon works!</p>
+<!--------------------------->
+<!-- Comienzo boton buscar -->
+<!--------------------------->
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="input-group">
+                    <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" #name />
+                    <button type="button" class="btn btn-outline-primary" (click)="buscar(name.value)">search</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!---------------------------->
+<!----- FIN boton buscar ----->
+<!---------------------------->
+<!--------------------------->
+<!--- Comienzo formulario --->
+<!--------------------------->
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h2 class="font-weight-normal">Pokemon</h2>
+                <form [formGroup]="formulario">
+                    <!------------------------------->
+                    <!--- Comienzo del input text --->
+                    <!------------------------------->
+                    <div class="form-group">
+                        <label for="name">Nombre:</label>
+                        <input type="text" class="form-control" formControlName="nombre" value="{{pokemon.name}}">
+                    </div>
+                    <div class="form-group">
+                        <label for="types">Tipos:</label>
+                        <input type="text" class="form-control" formControlName="tipos" value="{{pokemon.types}}">
+                    </div>
+                    <div class="form-group">
+                        <label for="level">Nivel:</label>
+                        <input type="number" class="form-control" formControlName="nivel" value="{{pokemon.level}}">
+                    </div>
+                    <!------------------------------->
+                    <!---- Final del input text ----->
+                    <!------------------------------->
+                </form>
+                <div class="row">
+                    <!---------------------------------------->
+                    <!--- Comienzo de la tabla habilidades --->
+                    <!---------------------------------------->
+                    <div class="col-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h2 class="font-weight-normal">Habilidades</h2>
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Nombre</th>
+                                            <th scope="col">Tipo</th>
+                                            <th scope="col">Acción</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let field of fieldSkills; let i = index">
+                                            <td>
+                                                {{field.name}}
+                                            </td>
+                                            <td>
+                                                {{field.type}}
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-danger" type="button" (click)="deleteSkill(i)">Eliminar</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input class="form-control" type="text" id="newSkillName" [(ngModel)]="skill.name" name="newSkillName" />
+                                            </td>
+                                            <td>
+                                                <input class="form-control" type="text" id="newSkillType" [(ngModel)]="skill.type" name="newSkillType" />
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-success" type="button" (click)="addSkill()">Agregar</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <!---------------------------------------->
+                    <!------ FIN de la tabla habilidades ----->
+                    <!---------------------------------------->
+                    <!---------------------------------------->
+                    <!--- Comienzo de la tabla Evoluciones --->
+                    <!---------------------------------------->
+                    <div class="col-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h2 class="font-weight-normal">Evoluciones</h2>
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Nombre</th>
+                                            <th scope="col">Tipo</th>
+                                            <th scope="col">Level</th>
+                                            <th scope="col">Acción</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let field of fieldEvolitons">
+                                            <td>{{field.name}}</td>
+                                            <td>{{field.types}}</td>
+                                            <td>{{field.level}}</td>
+                                            <td>
+                                                <button class="btn btn-danger" type="button" (click)="deleteEvolution(i)">Eliminar</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input class="form-control" type="text" id="newEvolName" [(ngModel)]="evolution.name" name="newEvolName" />
+                                            </td>
+                                            <td>
+                                                <input class="form-control" type="text" id="newEvolutionTypes" [(ngModel)]="evolution.types" name="newEvolutionTypes" />
+                                            </td>
+                                            <td>
+                                                <input class="form-control" type="number" id="newEvolutionLevel" [(ngModel)]="evolution.level" name="newEvolutionLevel" />
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-success" type="button" (click)="addEvolution()">Agregar</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                    <span id="error"></span>
+                    <button type="submit" class="btn btn-primary" (click)="updatePokemon()">Guardar</button>
+                    <!---------------------------------------->
+                    <!----- Fin de la tabla Evoluciones ------>
+                    <!---------------------------------------->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--------------------------->
+<!---- fin del formulario --->
+<!--------------------------->
